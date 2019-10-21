@@ -7,8 +7,6 @@ package trabalhopoo;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class  Estoque extends MateriaPrima {

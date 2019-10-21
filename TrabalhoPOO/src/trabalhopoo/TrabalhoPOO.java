@@ -5,7 +5,6 @@
  */
 package trabalhopoo;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 
@@ -21,11 +20,11 @@ public class TrabalhoPOO {
      */
     public static void main(String[] args) throws FileNotFoundException {
         
-        Estoque estoque_nigeriano = new Estoque("C:\\Users\\luizfernando\\Documents\\NetBeansProjects\\TrabalhoPOO\\estoque_exercito_nigeriano.txt");
-        Estoque estoque_boko_haram = new Estoque("C:\\Users\\luizfernando\\Documents\\NetBeansProjects\\TrabalhoPOO\\estoque_boko_haram.txt");
+        Estoque estoque_nigeriano = new Estoque("./estoque_boko_haram.txt");
+        Estoque estoque_boko_haram = new Estoque("./estoque_boko_haram.txt");
         ExercitoNigeriano nigeria = new ExercitoNigeriano(estoque_nigeriano);
         
-        nigeria.lerArmas("C:\\Users\\luizfernando\\Documents\\NetBeansProjects\\TrabalhoPOO\\Armas_exercito_nigeriano.txt");
+        nigeria.lerArmas("./Armas_exercito_nigeriano.txt");
 
         nigeria.fabricarArmas();
         
