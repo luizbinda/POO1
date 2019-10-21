@@ -9,11 +9,12 @@ package trabalhopoo;
  *
  * @author luizfernando
  */
-public abstract class ArmaProfissional extends ArmaArtesanal{
+public class ArmaProfissional extends ArmaArtesanal{
     private int calibre;
 
-    public ArmaProfissional(int codigo, int serial) {
-        super(codigo, serial);
+    public ArmaProfissional(int codigo, int serial, int pontuacao, int calibre) {
+        super(codigo, serial, pontuacao);
+        this.calibre = calibre;
     }
 
     public int getCalibre() {

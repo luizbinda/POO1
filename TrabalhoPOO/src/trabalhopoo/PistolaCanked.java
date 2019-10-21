@@ -15,7 +15,7 @@ import java.util.Iterator;
 public class PistolaCanked extends ArmaProfissional {
 
     public PistolaCanked(int codigo, int serial, boolean acessorio){
-        super(codigo, serial);
+        super(codigo, serial, 5, 40);
         
         this.custo = new MateriaPrima();
         this.custo.setMadeira(50);
@@ -25,8 +25,6 @@ public class PistolaCanked extends ArmaProfissional {
         this.custo.setCobre(10);
         this.custo.setOuro(30);
         this.custo.setPrata(20);
-        this.setPontuacao(5);
-        this.setCalibre(40);
 
         if (acessorio) {
             

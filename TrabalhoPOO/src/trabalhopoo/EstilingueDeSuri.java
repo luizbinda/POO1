@@ -13,8 +13,7 @@ package trabalhopoo;
 public class EstilingueDeSuri extends ArmaArtesanal {
 
     public EstilingueDeSuri(int codigo, int serial) {
-        super(codigo, serial);
-        this.setPontuacao(1);
+        super(codigo, serial, 1);
 
         this.custo = new MateriaPrima();
         this.custo.setMadeira(100);

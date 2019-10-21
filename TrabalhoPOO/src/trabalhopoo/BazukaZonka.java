@@ -14,7 +14,7 @@ import java.util.Iterator;
 public class BazukaZonka extends ArmaProfissional {
     
     public BazukaZonka(int codigo, int serial, boolean acessorio){
-        super(codigo, serial);
+        super(codigo, serial, 200, 40);
         
         this.custo = new MateriaPrima();
         this.custo.setAco(1000);
@@ -23,9 +23,6 @@ public class BazukaZonka extends ArmaProfissional {
         this.custo.setChumbo(20);
         this.custo.setPrata(200);
         this.custo.setPedra(100);
-        
-        this.setPontuacao(200);
-        this.setCalibre(40);
         
         if (acessorio) {
             custo = new MateriaPrima();
@@ -36,7 +33,7 @@ public class BazukaZonka extends ArmaProfissional {
     }
     
     public BazukaZonka(int codigo, int serial, int acessorio){
-        super(codigo, serial);
+        super(codigo, serial, 200, 40);
         
         this.custo = new MateriaPrima();
         this.custo.setAco(1000);
@@ -45,10 +42,7 @@ public class BazukaZonka extends ArmaProfissional {
         this.custo.setChumbo(20);
         this.custo.setPrata(200);
         this.custo.setPedra(100);
-        
-        this.setPontuacao(200);
-        this.setCalibre(1000);
-        
+                
         if (acessorio > 3) 
             acessorio = 3;
 

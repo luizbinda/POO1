@@ -30,7 +30,10 @@ public class TrabalhoPOO {
         
         System.out.println("---------------------");
         nigeria.getEstoque().getTotalEstoque();
-        System.out.println(nigeria.getDias());  
+        System.out.println("Total de dia é " + nigeria.getDias());  
+        System.out.println("Total de arma Artesanais é " + nigeria.getTotalArmasArtesanais());  
+        System.out.println("Total de arma profissionais é " + nigeria.getTotalArmasProfissionais());  
+        System.out.println("Total de armas " + nigeria.getTotal_armas());  
     }
     
 }

@@ -11,7 +11,7 @@ package trabalhopoo;
  */
 public class MetralhadoraNinek extends ArmaProfissional{
     public MetralhadoraNinek(int codigo, int serial){
-        super(codigo, serial);
+        super(codigo, serial, 20, 80);
         
         this.custo = new MateriaPrima();
         this.custo.setMadeira(200);
@@ -19,10 +19,6 @@ public class MetralhadoraNinek extends ArmaProfissional{
         this.custo.setFerro(200);
         this.custo.setOuro(10);
         this.custo.setPrata(10);
-
-        this.setPontuacao(20);
-        this.setCalibre(80);
-
     }
     
 }

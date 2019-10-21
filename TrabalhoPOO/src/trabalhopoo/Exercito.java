@@ -8,6 +8,7 @@ package trabalhopoo;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 
@@ -16,21 +17,33 @@ import java.util.Scanner;
  * @author luizfernando
  */
 public abstract class Exercito {
-     private int dias = 0;
-     private int total_armas = 0;
-     private int total_armas_artesanais = 0;
-     private int total_armas_profissionais = 0;
-     protected Estoque estoque;
-     protected ArrayList <ArmasArquivo> armas;
+    private int dias = 0;
+    private int total_armas = 0;
+    protected Estoque estoque;
+    protected ArrayList <ArmaArtesanal> arrayArmas;
 
-     public Exercito(Estoque estoque) {
+    public abstract void armasProduzidas(int codigo, int serial, int acessorio);
+
+    public Exercito(Estoque estoque) {
         this.estoque = estoque;
-        this.armas = new ArrayList<>();
+        this.arrayArmas = new ArrayList<>();
     }
 
-     public abstract int fabricarArmas();
-
-     public void lerArmas(String path) throws FileNotFoundException{
+    public int fabricarArmas() {
+        while(this.estoque.verificarEstoque()){
+            Iterator i = this.arrayArmas.iterator();
+            while( i.hasNext()){
+                ArmaArtesanal aux = (ArmaArtesanal) i.next();
+                aux.fabricar(this.estoque);
+                if(!this.estoque.verificarEstoque())
+                    break;
+            }
+            this.setDias( this.getDias() + 1);
+        }
+        return this.getDias();
+    }
+   
+    public void lerArmas(String path) throws FileNotFoundException{
         FileInputStream armas_arquivo = new FileInputStream(path);
         Scanner scan = new Scanner(armas_arquivo);  
         this.setTotal_armas(scan.nextInt());
@@ -47,7 +60,7 @@ public abstract class Exercito {
                 else if(scan.hasNextInt())
                     acessorio = scan.nextInt();
             }
-            this.armas.add(new ArmasArquivo(codigo, serial, acessorio));
+            armasProduzidas(codigo, serial, acessorio);            
             codigo = 0;
             serial = 0;
             acessorio = 0;
@@ -79,20 +92,24 @@ public abstract class Exercito {
         this.total_armas = total_armas;
     }
 
-    public int getTotal_armas_artesanais() {
+    public int getTotalArmasArtesanais() {
+        int total_armas_artesanais = 0;
+        Iterator i = this.arrayArmas.iterator();
+            while( i.hasNext()){
+                if( i.next() instanceof ArmaArtesanal)
+                    total_armas_artesanais += 1;
+            }  
         return total_armas_artesanais;
     }
 
-    public void setTotal_armas_artesanais(int total_armas_artesanais) {
-        this.total_armas_artesanais = total_armas_artesanais;
-    }
-
-    public int getTotal_armas_profissionais() {
+    public int getTotalArmasProfissionais() {
+        int total_armas_profissionais = 0;
+        Iterator i = this.arrayArmas.iterator();
+            while( i.hasNext()){
+                if( i.next() instanceof ArmaProfissional)
+                    total_armas_profissionais += 1;
+            }  
         return total_armas_profissionais;
-    }
-
-    public void setTotal_armas_profissionais(int total_armas_profissionais) {
-        this.total_armas_profissionais = total_armas_profissionais;
     }
 
 }

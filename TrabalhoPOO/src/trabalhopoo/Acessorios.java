@@ -11,5 +11,5 @@ package trabalhopoo;
  * @author luizfernando
  */
 class Acessorios extends Fabricar {
-    
+
 }

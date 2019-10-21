@@ -12,7 +12,7 @@ package trabalhopoo;
 public class MetralhadoraHamHam extends ArmaProfissional{
         
     public MetralhadoraHamHam(int codigo, int serial){
-        super(codigo, serial);
+        super(codigo, serial, 10, 80);
         
         this.custo = new MateriaPrima();
         this.custo.setMadeira(20);
@@ -22,10 +22,6 @@ public class MetralhadoraHamHam extends ArmaProfissional{
         this.custo.setChumbo(50);
         this.custo.setCouro(20);
         this.custo.setPedra(20);
-
-        this.setPontuacao(10);
-        this.setCalibre(80);
-
     }
     
 }

@@ -12,8 +12,7 @@ package trabalhopoo;
 public class LançaForal extends ArmaArtesanal{
 
     public LançaForal(int codigo, int serial, boolean acessorio) {
-        super(codigo, serial);
-        this.setPontuacao(1);
+        super(codigo, serial, 1);
 
         this.custo = new MateriaPrima();
         this.custo.setMadeira(100);

@@ -5,9 +5,7 @@
  */
 package trabalhopoo;
 
-import java.io.FileInputStream;
 import java.util.Iterator;
-import java.util.Scanner;
 
 /**
  *
@@ -17,41 +15,31 @@ public class ExercitoBokoHaram extends Exercito {
     public ExercitoBokoHaram(Estoque estoque){
         super(estoque);
     }
-
-   @Override
-    public int fabricarArmas() {
-        while(this.estoque.verificarEstoque()){
-            Iterator i = this.armas.iterator();
-            while( i.hasNext()){
-                ArmasArquivo aux = (ArmasArquivo) i.next();
-                switch (aux.getCodigo()) {
-                case 1:
-                    ZarabatanaLongin ZarabatanaLongin = new ZarabatanaLongin(aux.getCodigo(), aux.getSerial(), (aux.getAcessorio() == 1));
-                    ZarabatanaLongin.fabricar(this.estoque);
-                    break;
-                case 2:
-                    LançaForal LançaForal = new LançaForal(aux.getCodigo(), aux.getSerial(), (aux.getAcessorio() == 1));
-                    LançaForal.fabricar(this.estoque);
-                    break;
-                case 3:
-                    MetralhadoraHamHam MetralhadoraHamHam = new MetralhadoraHamHam(aux.getCodigo(), aux.getSerial());
-                    MetralhadoraHamHam.fabricar(this.estoque);              
-                    break;
-                case 4:
-                    LancaChamasMirak LancaChamasMirak = new LancaChamasMirak(aux.getCodigo(), aux.getSerial());
-                    LancaChamasMirak.fabricar(this.estoque);  
-                    break;
-                case 5:
-                    LançaFogueteOnOn LançaFogueteOnOn = new LançaFogueteOnOn(aux.getCodigo(), aux.getSerial(), (aux.getAcessorio() == 1));
-                    LançaFogueteOnOn.fabricar(this.estoque);
-                    break;
-                }                
-                if(!this.estoque.verificarEstoque())
-                    break;
-            }
-            this.setDias( this.getDias() + 1);
-        }
-        return this.getDias();
-    }
+    
+    @Override
+    public void armasProduzidas(int codigo, int serial, int acessorio){
+        switch (codigo) {
+            case 1:
+                ArmaArtesanal arma = new EstilingueDeSuri(codigo, serial);
+                this.arrayArmas.add(arma);
+                break;
+            case 2:
+                ArmaArtesanal arma1 = new PistolaCanked(codigo, serial, acessorio == 1);
+                this.arrayArmas.add(arma1);
+                break;
+            case 3:
+                ArmaArtesanal arma2 = new MetralhadoraNinek(codigo, serial);
+                this.arrayArmas.add(arma2);          
+                break;
+            case 4:
+                ArmaArtesanal arma3 = new FuzilK777(codigo, serial);
+                this.arrayArmas.add(arma3);  
+                break;
+            case 5:
+                ArmaArtesanal arma4 = new BazukaZonka(codigo, serial, acessorio);
+                this.arrayArmas.add(arma4);
+                break;
+            }          
+     }
     
 }

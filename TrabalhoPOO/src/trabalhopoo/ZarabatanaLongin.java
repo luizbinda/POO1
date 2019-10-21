@@ -12,8 +12,7 @@ package trabalhopoo;
 public class ZarabatanaLongin extends ArmaArtesanal {
 
     public ZarabatanaLongin(int codigo, int serial, boolean acessorio) {
-        super(codigo, serial);
-        this.setPontuacao(2);
+        super(codigo, serial, 2);
 
         this.custo = new MateriaPrima();
         this.custo.setMadeira(300);

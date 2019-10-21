@@ -12,7 +12,7 @@ package trabalhopoo;
 public class LançaFogueteOnOn extends ArmaProfissional {
         
     public LançaFogueteOnOn(int codigo, int serial, Boolean acessorio){
-        super(codigo, serial);
+        super(codigo, serial, 150, 1000);
         
         this.custo = new MateriaPrima();
         this.custo.setAco(1000);
@@ -20,9 +20,6 @@ public class LançaFogueteOnOn extends ArmaProfissional {
         this.custo.setAluminio(400);
         this.custo.setChumbo(20);
         this.custo.setOuro(10);
-        
-        this.setPontuacao(150);
-        this.setCalibre(1000);
 
         if (acessorio) {
             custo = new MateriaPrima();

@@ -12,7 +12,7 @@ package trabalhopoo;
 public class LancaChamasMirak extends ArmaProfissional{
 
     public LancaChamasMirak(int codigo, int serial){
-        super(codigo, serial);
+        super(codigo, serial, 40, 50);
         
         this.custo = new MateriaPrima();
         this.custo.setMadeira(500);
@@ -24,9 +24,5 @@ public class LancaChamasMirak extends ArmaProfissional{
         this.custo.setOuro(10);
         this.custo.setPrata(10);
         this.custo.setPedra(40);
-
-        this.setPontuacao(40);
-        this.setCalibre(50);
-
     }
 }

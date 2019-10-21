@@ -17,9 +17,10 @@ public abstract class ArmaArtesanal extends Fabricar {
     private int codigo;
     protected ArrayList acessorios;
 
-    public ArmaArtesanal(int codigo, int serial) {
+    public ArmaArtesanal(int codigo, int serial, int pontuacao) {
         this.serial = serial;
         this.codigo = codigo;
+        this.pontuacao = pontuacao;
         this.acessorios = new ArrayList();
     }
 

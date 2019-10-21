@@ -11,7 +11,7 @@ package trabalhopoo;
  */
 public class Fabricar extends MateriaPrima {
 
-    private int pontuacao;
+    protected int pontuacao;
     protected MateriaPrima custo;
 
     public void fabricar(Estoque estoque){
