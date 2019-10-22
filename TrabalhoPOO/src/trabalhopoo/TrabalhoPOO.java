@@ -23,17 +23,18 @@ public class TrabalhoPOO {
         Estoque estoque_nigeriano = new Estoque("./estoque_boko_haram.txt");
         Estoque estoque_boko_haram = new Estoque("./estoque_boko_haram.txt");
         ExercitoNigeriano nigeria = new ExercitoNigeriano(estoque_nigeriano);
+        ExercitoBokoHaram boko_haram = new ExercitoBokoHaram(estoque_boko_haram);
         
         nigeria.lerArmas("./Armas_exercito_nigeriano.txt");
-
         nigeria.fabricarArmas();
-        
+        boko_haram.lerArmas("./Armas_boko_haram.txt");
+        boko_haram.fabricarArmas();
+
         System.out.println("---------------------");
-        nigeria.getEstoque().getTotalEstoque();
-        System.out.println("Total de dia é " + nigeria.getDias());  
-        System.out.println("Total de arma Artesanais é " + nigeria.getTotalArmasArtesanais());  
-        System.out.println("Total de arma profissionais é " + nigeria.getTotalArmasProfissionais());  
-        System.out.println("Total de armas " + nigeria.getTotal_armas());  
+        System.out.println("O exército nigeriano produz " + nigeria.getTotalArmasArtesanais() + " arma artesanal por dia" );  
+        System.out.println("O boko haram produz " + boko_haram.getTotalArmasArtesanais() + " arma artesanal por dia" );  
+        System.out.println("bocais  " + nigeria.maiorBocalBazukaZonka() );  
+   
     }
     
 }

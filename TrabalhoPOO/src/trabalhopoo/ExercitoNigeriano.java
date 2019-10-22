@@ -5,9 +5,6 @@
  */
 package trabalhopoo;
 
-import java.io.FileInputStream;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -45,6 +42,34 @@ public class ExercitoNigeriano extends Exercito{
                 this.arrayArmas.add(arma4);
                 break;
             }          
-     }
-          
+    }
+
+    @Override
+    public int descobirAcessorio(int codigo, Scanner scan) {
+        int acessorio = 0;
+        if(codigo == 2)
+            acessorio = scan.nextBoolean() ? 1 : 0 ;
+
+        if(codigo == 5){
+            acessorio = scan.hasNextBoolean() ? scan.nextBoolean() == true ? 1 : 0 : scan.nextInt();
+        } 
+        return acessorio;
+    }
+      
+    public int getBazukaZonkaMaiorBocal() {
+        boolean existe = false;
+        int bocais = 0;
+        int max_bocais = 0;
+        for (ArmaArtesanal arma : arrayArmas) {
+            if (arma instanceof BazukaZonka) {
+                existe = true;
+                for ( Object acessorio : arma.acessorios)
+                    bocais++;
+                
+                if( max_bocais < bocais)
+                    max_bocais = bocais;
+            }
+        }   
+        return bocais;     
+    }
 }
