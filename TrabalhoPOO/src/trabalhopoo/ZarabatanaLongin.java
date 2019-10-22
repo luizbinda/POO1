@@ -19,7 +19,7 @@ public class ZarabatanaLongin extends ArmaArtesanal {
         this.custo.setPedra(20);
 
         if (acessorio) {
-            this.acessorios.add(new Acessorios());            
+            this.acessorios.add(new Fabricar());            
         }
     }
 }

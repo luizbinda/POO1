@@ -12,7 +12,7 @@ package trabalhopoo;
 public class FuzilK777 extends ArmaProfissional{
 
     public FuzilK777(int codigo, int serial) {
-        super(codigo, serial, 40, 100);
+        super(codigo, serial, 50, 100);
 
         this.custo = new MateriaPrima();
         this.custo.setFerro(800);

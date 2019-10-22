@@ -1,7 +1,7 @@
 Madeira 30000
-Aço 50000
+AÃ§o 50000
 Ferro 40000
-Alumínio 150000
+Aluminio 150000
 Chumbo 1555
 Cobre 5000
 Ouro 700

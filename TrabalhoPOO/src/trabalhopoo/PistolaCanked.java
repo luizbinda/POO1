@@ -26,8 +26,7 @@ public class PistolaCanked extends ArmaProfissional {
         this.custo.setOuro(30);
         this.custo.setPrata(20);
 
-        if (acessorio) {
-            
+        if (acessorio) {            
             custo = new MateriaPrima();
             custo.setPrata(60);
             setAcessorios(1, this.acessorios, custo, 10);         

@@ -15,7 +15,7 @@ import java.util.Iterator;
 public abstract class ArmaArtesanal extends Fabricar {
     private int serial; 
     private int codigo;
-    protected ArrayList acessorios;
+    protected ArrayList <Fabricar> acessorios;
 
     public ArmaArtesanal(int codigo, int serial, int pontuacao) {
         this.serial = serial;
@@ -43,26 +43,33 @@ public abstract class ArmaArtesanal extends Fabricar {
     public void setAcessorios(int qtd, ArrayList acessorios, MateriaPrima custo, int pontuacao) {
          
         for (int i = qtd; i > 0; i--) {
-            this.acessorios.add(new Acessorios()); 
+            this.acessorios.add(new Fabricar()); 
         }
-
-        Iterator i = this.acessorios.iterator();   
-        while (i.hasNext()) {
-            Acessorios aux = (Acessorios) i.next();
-            aux.setCusto(custo);
-            aux.setPontuacao(pontuacao);
+        for( Fabricar acessorio : this.acessorios){
+            acessorio.setCusto(custo);
+            acessorio.setPontuacao(pontuacao);
         }
     }
 
     public void fabricarAcessorio(Estoque estoque){
         if(!this.acessorios.isEmpty()){
-            Iterator i = this.acessorios.iterator();
-            while (i.hasNext()) {
-                Acessorios acessorio = (Acessorios) i.next();
+            for( Fabricar acessorio : this.acessorios){
                 acessorio.fabricar(estoque);
-                this.setPontuacao(getPontuacao() + acessorio.getPontuacao());
             }
         }
     }
+    
+    @Override
+    public int getPontuacao() {
+        int pontuacao = super.getPontuacao();
+
+        for( Fabricar acessorio : this.acessorios){
+            pontuacao += acessorio.getPontuacao();
+        } 
+        
+        return pontuacao;
+    }
+
+
 
 }

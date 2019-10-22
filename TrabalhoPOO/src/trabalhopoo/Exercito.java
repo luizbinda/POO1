@@ -96,14 +96,14 @@ public abstract class Exercito {
         return total_armas_artesanais;
     }
 
-    public int getTotalArmasProfissionais() {
-        int total_armas_profissionais = 0;
-        for (ArmaArtesanal arma : arrayArmas) {
-            if (arma instanceof ArmaProfissional) {
-                total_armas_profissionais++;
+    public int getPontuacaoExercito() {
+        int pontucao_total = 0;
+        for( int i = 0; i < getDias(); i++){
+            for (ArmaArtesanal arma : arrayArmas) {
+                pontucao_total += arma.getPontuacao();
             }
         }
-        return total_armas_profissionais;
+        return pontucao_total;
     }
 
     

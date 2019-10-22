@@ -45,9 +45,9 @@ public class TrabalhoPOO {
                 System.out.print(i + ", ");
         }
         System.out.println("O exército nigeriano possui estoque para " + nigeria.getDias() + " dias.");
-        nigeria.estoque.getTotalEstoque();
-        System.out.println("O Boko Haram possui estoque para " + nigeria.getDias() + " dias.");
-        boko_haram.estoque.getTotalEstoque();
+        System.out.println("O Boko Haram possui estoque para " + boko_haram.getDias() + " dias.");
+        System.out.println("O exército nigeriano chegou à pontuação de " + nigeria.getPontuacaoExercito());
+        System.out.println("O Boko Haram chegou à pontuação de " + boko_haram.getPontuacaoExercito());
         
    
     }

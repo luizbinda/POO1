@@ -20,7 +20,7 @@ public class LançaForal extends ArmaArtesanal{
         this.custo.setPedra(200);
 
         if (acessorio) {
-            this.acessorios.add(new Acessorios());            
+            this.acessorios.add(new Fabricar());            
         }
     }  
 }
