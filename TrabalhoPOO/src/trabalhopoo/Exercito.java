@@ -33,16 +33,13 @@ public abstract class Exercito {
 
     public int fabricarArmas() {
         while (this.estoque.verificarEstoque()) {
-            Iterator i = this.arrayArmas.iterator();
-            while (i.hasNext()) {
-                ArmaArtesanal aux = (ArmaArtesanal) i.next();
-                aux.fabricar(this.estoque);
-                if (!this.estoque.verificarEstoque()) {
-                    break;
-                }
+            for (ArmaArtesanal arma : arrayArmas){
+                arma.fabricar(this.estoque);
+                if (!this.estoque.verificarEstoque())
+                    return this.getDias();
             }
             this.setDias(this.getDias() + 1);
-        }
+        }        
         return this.getDias();
     }
 
