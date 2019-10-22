@@ -42,6 +42,7 @@ public class ExercitoNigeriano extends Exercito{
             case 5:
                 ArmaArtesanal arma4 = new BazukaZonka(codigo, serial, acessorio);
                 this.arrayArmas.add(arma4);
+                Exercito.armas_com_calibre_maior_que_100.add(serial);
                 break;
             }          
     }

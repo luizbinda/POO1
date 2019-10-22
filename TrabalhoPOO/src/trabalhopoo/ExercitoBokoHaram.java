@@ -39,6 +39,7 @@ public class ExercitoBokoHaram extends Exercito {
             case 5:
                 ArmaArtesanal arma4 = new LançaFogueteOnOn(codigo, serial, acessorio == 1);
                 this.arrayArmas.add(arma4);
+                Exercito.armas_com_calibre_maior_que_100.add(serial);
                 break;
         }          
     }

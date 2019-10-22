@@ -6,6 +6,7 @@
 package trabalhopoo;
 
 import java.io.FileNotFoundException;
+import java.util.Objects;
 
 
 /**
@@ -36,6 +37,13 @@ public class TrabalhoPOO {
         System.out.println("O total de armas artesanais produzidas é " + (nigeria.getTotalArmasArtesanais() + boko_haram.getTotalArmasArtesanais()));  
         nigeria.getBazukaZonkaMaiorBocal();
         boko_haram.getMaiorQuantidadeLançaFogueteOnOn();
+        System.out.print("As armas com calibre maior que 100 são: ");
+        for( Integer i : Exercito.armas_com_calibre_maior_que_100){
+            if(Objects.equals(i, Exercito.armas_com_calibre_maior_que_100.get(Exercito.armas_com_calibre_maior_que_100.size() -1)))
+                System.out.println(i);
+            else
+                System.out.print(i + ", ");
+        }
         
    
     }

@@ -27,6 +27,8 @@ public abstract class Exercito {
 
     public Exercito(Estoque estoque) {
         this.estoque = estoque;
+        armas_com_calibre_maior_que_100 = new ArrayList <>();
+
     }
 
     public int fabricarArmas() {
