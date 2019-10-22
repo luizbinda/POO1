@@ -6,16 +6,15 @@
 package trabalhopoo;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  *
  * @author luizfernando
  */
-public abstract class ArmaArtesanal extends Fabricar {
-    private int serial; 
-    private int codigo;
-    protected ArrayList <Fabricar> acessorios;
+public abstract class ArmaArtesanal extends Objeto {
+    private final int serial; 
+    private final int codigo;
+    protected ArrayList <Objeto> acessorios;
 
     public ArmaArtesanal(int codigo, int serial, int pontuacao) {
         this.serial = serial;
@@ -28,24 +27,16 @@ public abstract class ArmaArtesanal extends Fabricar {
         return serial;
     }
 
-    public void setSerial(int serial) {
-        this.serial = serial;
-    }
-
     public int getCodigo() {
         return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
     }
 
     public void setAcessorios(int qtd, ArrayList acessorios, MateriaPrima custo, int pontuacao) {
          
         for (int i = qtd; i > 0; i--) {
-            this.acessorios.add(new Fabricar()); 
+            this.acessorios.add(new Objeto()); 
         }
-        for( Fabricar acessorio : this.acessorios){
+        for( Objeto acessorio : this.acessorios){
             acessorio.setCusto(custo);
             acessorio.setPontuacao(pontuacao);
         }
@@ -53,7 +44,7 @@ public abstract class ArmaArtesanal extends Fabricar {
 
     public void fabricarAcessorio(Estoque estoque){
         if(!this.acessorios.isEmpty()){
-            for( Fabricar acessorio : this.acessorios){
+            for( Objeto acessorio : this.acessorios){
                 acessorio.fabricar(estoque);
             }
         }
@@ -63,13 +54,10 @@ public abstract class ArmaArtesanal extends Fabricar {
     public int getPontuacao() {
         int pontuacao = super.getPontuacao();
 
-        for( Fabricar acessorio : this.acessorios){
+        for( Objeto acessorio : this.acessorios){
             pontuacao += acessorio.getPontuacao();
         } 
         
         return pontuacao;
     }
-
-
-
 }

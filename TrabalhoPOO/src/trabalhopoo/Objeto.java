@@ -10,7 +10,7 @@ package trabalhopoo;
  *
  * @author luizfernando
  */
-public class Fabricar extends MateriaPrima {
+public class Objeto  {
 
     protected int pontuacao;
     protected MateriaPrima custo;

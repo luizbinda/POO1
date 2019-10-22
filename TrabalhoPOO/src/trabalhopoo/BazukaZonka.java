@@ -5,8 +5,6 @@
  */
 package trabalhopoo;
 
-import java.util.Comparator;
-
 /**
  *
  * @author luizfernando

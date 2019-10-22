@@ -8,7 +8,6 @@ package trabalhopoo;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -18,12 +17,12 @@ import java.util.Scanner;
 public abstract class Exercito {
 
     private int dias = 0;
-    private int total_armas = 0;
     protected Estoque estoque;
     protected ArrayList <ArmaArtesanal> arrayArmas;
     protected static ArrayList <Integer> armas_com_calibre_maior_que_100;
 
     public abstract void armasProduzidas(int codigo, int serial, int acessorio);
+    public abstract int descobirAcessorio(int codigo, Scanner scan);
 
     public Exercito(Estoque estoque) {
         this.estoque = estoque;
@@ -43,8 +42,6 @@ public abstract class Exercito {
         return this.getDias();
     }
 
-    public abstract int descobirAcessorio(int codigo, Scanner scan);
-
     public void lerArmas(String path) throws FileNotFoundException {
         FileInputStream armas_arquivo = new FileInputStream(path);
         Scanner scan = new Scanner(armas_arquivo);
@@ -62,28 +59,12 @@ public abstract class Exercito {
         scan.close();
     }
 
-    public Estoque getEstoque() {
-        return estoque;
-    }
-
-    public void setEstoque(Estoque estoque) {
-        this.estoque = estoque;
-    }
-
     public int getDias() {
         return dias;
     }
 
     public void setDias(int dias) {
         this.dias = dias;
-    }
-
-    public int getTotal_armas() {
-        return total_armas;
-    }
-
-    public void setTotal_armas(int total_armas) {
-        this.total_armas = total_armas;
     }
 
     public int getTotalArmasArtesanais() {
@@ -106,5 +87,4 @@ public abstract class Exercito {
         return pontucao_total;
     }
 
-    
 }

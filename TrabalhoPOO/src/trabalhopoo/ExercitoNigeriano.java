@@ -59,7 +59,7 @@ public class ExercitoNigeriano extends Exercito{
         return acessorio;
     }
       
-    public void getBazukaZonkaMaiorBocal() {
+    public ArrayList getBazukaZonkaMaiorBocal() {
         ArrayList <BazukaZonka> bazukas = new ArrayList<>(); 
         for (ArmaArtesanal arma : arrayArmas) {
             if (arma instanceof BazukaZonka) {
@@ -67,24 +67,8 @@ public class ExercitoNigeriano extends Exercito{
             }         
         }    
         Collections.sort(bazukas);
-    
-        boolean mais_de_uma = false;
-        BazukaZonka maior = bazukas.get(bazukas.size() - 1);
-        bazukas.remove(bazukas.size() - 1);
-   
-        System.out.print("A Bazuka Zonka de serial " + maior.getSerial());
-        for (BazukaZonka bazuka : bazukas){
-            if( maior.compareTo(bazuka) == 0){
-                System.out.print(", " + bazuka.getSerial());
-                mais_de_uma = true;
-            }
 
-        } 
-
-        if(mais_de_uma)
-            System.out.println(" são as bazukas com mais bocais (" + maior.acessorios.size() + ").");
-        else
-            System.out.println(" é a bazuka com mais bocais (" + maior.acessorios.size() + ").");
+        return bazukas;
 
     }
 }

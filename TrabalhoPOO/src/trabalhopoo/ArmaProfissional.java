@@ -10,7 +10,7 @@ package trabalhopoo;
  * @author luizfernando
  */
 public class ArmaProfissional extends ArmaArtesanal{
-    private int calibre;
+    private final int calibre;
 
     public ArmaProfissional(int codigo, int serial, int pontuacao, int calibre) {
         super(codigo, serial, pontuacao);
@@ -19,10 +19,6 @@ public class ArmaProfissional extends ArmaArtesanal{
 
     public int getCalibre() {
         return calibre;
-    }
-
-    public void setCalibre(int calibre) {
-        this.calibre = calibre;
     }
     
 }

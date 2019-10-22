@@ -6,6 +6,7 @@
 package trabalhopoo;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 
@@ -35,8 +36,31 @@ public class TrabalhoPOO {
         System.out.println("O exército nigeriano produz " + nigeria.getTotalArmasArtesanais() + " arma artesanal por dia" );  
         System.out.println("O boko haram produz " + boko_haram.getTotalArmasArtesanais() + " arma artesanal por dia" );  
         System.out.println("O total de armas artesanais produzidas é " + (nigeria.getTotalArmasArtesanais() + boko_haram.getTotalArmasArtesanais()));  
-        nigeria.getBazukaZonkaMaiorBocal();
-        boko_haram.getMaiorQuantidadeLançaFogueteOnOn();
+        
+        ArrayList <BazukaZonka> bazukas = nigeria.getBazukaZonkaMaiorBocal();
+        boolean mais_de_uma = false;
+        BazukaZonka maior = bazukas.get(bazukas.size() - 1);
+        bazukas.remove(bazukas.size() - 1);
+   
+        System.out.print("A Bazuka Zonka de serial " + maior.getSerial());
+        for (BazukaZonka bazuka : bazukas){
+            if( maior.compareTo(bazuka) == 0){
+                System.out.print(", " + bazuka.getSerial());
+                mais_de_uma = true;
+            }
+        } 
+        if(mais_de_uma)
+            System.out.println(" são as bazukas com mais bocais (" + maior.acessorios.size() + ").");
+        else
+            System.out.println(" é a bazuka com mais bocais (" + maior.acessorios.size() + ").");
+
+        if(boko_haram.getMaiorQuantidadeLançaFogueteOnOn() == 1)
+            System.out.println("SIM");
+        else if (boko_haram.getMaiorQuantidadeLançaFogueteOnOn() == -1)
+            System.out.println("NÃO");
+        else
+            System.out.println("EMPATE");
+        
         System.out.print("As armas com calibre maior que 100 são: ");
         for( Integer i : Exercito.armas_com_calibre_maior_que_100){
             if(Objects.equals(i, Exercito.armas_com_calibre_maior_que_100.get(Exercito.armas_com_calibre_maior_que_100.size() -1)))
@@ -48,8 +72,7 @@ public class TrabalhoPOO {
         System.out.println("O Boko Haram possui estoque para " + boko_haram.getDias() + " dias.");
         System.out.println("O exército nigeriano chegou à pontuação de " + nigeria.getPontuacaoExercito());
         System.out.println("O Boko Haram chegou à pontuação de " + boko_haram.getPontuacaoExercito());
-        
-   
+
     }
     
 }

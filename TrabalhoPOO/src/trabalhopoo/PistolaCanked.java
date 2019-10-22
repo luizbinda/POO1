@@ -5,9 +5,6 @@
  */
 package trabalhopoo;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 /**
  *
  * @author luizfernando

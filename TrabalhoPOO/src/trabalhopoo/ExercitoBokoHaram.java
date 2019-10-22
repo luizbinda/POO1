@@ -53,7 +53,7 @@ public class ExercitoBokoHaram extends Exercito {
     }
     
 
-    public void getMaiorQuantidadeLançaFogueteOnOn() {
+    public int getMaiorQuantidadeLançaFogueteOnOn() {
         ArrayList <LançaFogueteOnOn> foguetes = new ArrayList<>(); 
         for (ArmaArtesanal arma : arrayArmas) {
             if (arma instanceof LançaFogueteOnOn) {
@@ -71,17 +71,13 @@ public class ExercitoBokoHaram extends Exercito {
                 sem_foguetes_especias++;
         } 
         if(com_foguetes_especias > sem_foguetes_especias )
-            System.out.println("SIM");
+            return 1;
+            
         else if(com_foguetes_especias < sem_foguetes_especias ) 
-            System.out.println("NÃO");
+            return -1;
+            
         else
-            System.out.println("EMPATE");
-
+            return 0;
     }
-
-
-
-
-
 
 }

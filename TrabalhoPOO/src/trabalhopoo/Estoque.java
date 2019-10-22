@@ -47,7 +47,6 @@ public class  Estoque extends MateriaPrima {
 
         scan.close();
 
-
     }
   
     public void getTotalEstoque(){
