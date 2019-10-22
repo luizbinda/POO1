@@ -19,6 +19,7 @@ public abstract class Exercito {
 
     private int dias = 0;
     private int total_armas = 0;
+    private static int armas_artesanais;
     protected Estoque estoque;
     protected ArrayList<ArmaArtesanal> arrayArmas;
 

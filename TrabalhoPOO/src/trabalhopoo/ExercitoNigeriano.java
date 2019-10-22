@@ -5,6 +5,8 @@
  */
 package trabalhopoo;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -56,20 +58,32 @@ public class ExercitoNigeriano extends Exercito{
         return acessorio;
     }
       
-    public int getBazukaZonkaMaiorBocal() {
-        boolean existe = false;
-        int bocais = 0;
-        int max_bocais = 0;
+    public void getBazukaZonkaMaiorBocal() {
+        ArrayList <BazukaZonka> bazukas = new ArrayList<>(); 
         for (ArmaArtesanal arma : arrayArmas) {
             if (arma instanceof BazukaZonka) {
-                existe = true;
-                for ( Object acessorio : arma.acessorios)
-                    bocais++;
-                
-                if( max_bocais < bocais)
-                    max_bocais = bocais;
+                bazukas.add((BazukaZonka) arma);
+            }         
+        }    
+        Collections.sort(bazukas);
+    
+        boolean mais_de_uma = false;
+        BazukaZonka maior = bazukas.get(bazukas.size() - 1);
+        bazukas.remove(bazukas.size() - 1);
+   
+        System.out.print("A Bazuka Zonka de serial " + maior.getSerial());
+        for (BazukaZonka bazuka : bazukas){
+            if( maior.compareTo(bazuka) == 0){
+                System.out.print(", " + bazuka.getSerial());
+                mais_de_uma = true;
             }
-        }   
-        return bocais;     
+
+        } 
+
+        if(mais_de_uma)
+            System.out.println(" são as bazukas com mais bocais (" + maior.acessorios.size() + ").");
+        else
+            System.out.println(" é a bazuka com mais bocais (" + maior.acessorios.size() + ").");
+
     }
 }

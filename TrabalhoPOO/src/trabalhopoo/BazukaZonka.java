@@ -5,17 +5,17 @@
  */
 package trabalhopoo;
 
-import java.util.Iterator;
+import java.util.Comparator;
 
 /**
  *
  * @author luizfernando
  */
-public class BazukaZonka extends ArmaProfissional {
-    
-    public BazukaZonka(int codigo, int serial, boolean acessorio){
+public class BazukaZonka extends ArmaProfissional implements Comparable <BazukaZonka> {
+
+    public BazukaZonka(int codigo, int serial, boolean acessorio) {
         super(codigo, serial, 200, 40);
-        
+
         this.custo = new MateriaPrima();
         this.custo.setAco(1000);
         this.custo.setFerro(1000);
@@ -23,18 +23,18 @@ public class BazukaZonka extends ArmaProfissional {
         this.custo.setChumbo(20);
         this.custo.setPrata(200);
         this.custo.setPedra(100);
-        
+
         if (acessorio) {
             custo = new MateriaPrima();
             custo.setAco(200);
             custo.setOuro(100);
-            setAcessorios(1, this.acessorios, custo, 100);            
+            setAcessorios(1, this.acessorios, custo, 100);
         }
     }
-    
-    public BazukaZonka(int codigo, int serial, int acessorio){
+
+    public BazukaZonka(int codigo, int serial, int acessorio) {
         super(codigo, serial, 200, 40);
-        
+
         this.custo = new MateriaPrima();
         this.custo.setAco(1000);
         this.custo.setFerro(1000);
@@ -42,9 +42,10 @@ public class BazukaZonka extends ArmaProfissional {
         this.custo.setChumbo(20);
         this.custo.setPrata(200);
         this.custo.setPedra(100);
-                
-        if (acessorio > 3) 
+
+        if (acessorio > 3) {
             acessorio = 3;
+        }
 
         if (acessorio > 0) {
             custo = new MateriaPrima();
@@ -55,8 +56,19 @@ public class BazukaZonka extends ArmaProfissional {
     }
 
     @Override
-    public void fabricar(Estoque estoque){
+    public void fabricar(Estoque estoque) {
         super.fabricar(estoque);
         this.fabricarAcessorio(estoque);
+    }
+
+    @Override
+    public int compareTo(BazukaZonka t) {
+        if (this.acessorios.size() > t.acessorios.size()) {
+            return 1;
+        }
+        if (this.acessorios.size() == t.acessorios.size()) {
+            return 0;
+        }
+        return -1;
     }
 }

@@ -33,7 +33,7 @@ public class TrabalhoPOO {
         System.out.println("---------------------");
         System.out.println("O exército nigeriano produz " + nigeria.getTotalArmasArtesanais() + " arma artesanal por dia" );  
         System.out.println("O boko haram produz " + boko_haram.getTotalArmasArtesanais() + " arma artesanal por dia" );  
-        System.out.println("bocais  " + nigeria.maiorBocalBazukaZonka() );  
+        nigeria.getBazukaZonkaMaiorBocal();  
    
     }
     
