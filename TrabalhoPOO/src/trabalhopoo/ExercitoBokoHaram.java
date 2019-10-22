@@ -5,6 +5,7 @@
  */
 package trabalhopoo;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -51,8 +52,31 @@ public class ExercitoBokoHaram extends Exercito {
     }
     
 
+    public void getMaiorQuantidadeLançaFogueteOnOn() {
+        ArrayList <LançaFogueteOnOn> foguetes = new ArrayList<>(); 
+        for (ArmaArtesanal arma : arrayArmas) {
+            if (arma instanceof LançaFogueteOnOn) {
+                foguetes.add((LançaFogueteOnOn) arma);
+            }         
+        }       
 
+        int com_foguetes_especias = 0;
+        int sem_foguetes_especias = 0;
 
+        for (LançaFogueteOnOn foguete : foguetes){
+            if( foguete.acessorios.size() > 0)
+                com_foguetes_especias++;
+            else
+                sem_foguetes_especias++;
+        } 
+        if(com_foguetes_especias > sem_foguetes_especias )
+            System.out.println("SIM");
+        else if(com_foguetes_especias < sem_foguetes_especias ) 
+            System.out.println("NÃO");
+        else
+            System.out.println("EMPATE");
+
+    }
 
 
 

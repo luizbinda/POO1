@@ -22,7 +22,6 @@ public abstract class ArmaArtesanal extends Fabricar {
         this.codigo = codigo;
         this.pontuacao = pontuacao;
         this.acessorios = new ArrayList();
- 
     }
 
     public int getSerial() {

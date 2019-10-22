@@ -19,9 +19,9 @@ public abstract class Exercito {
 
     private int dias = 0;
     private int total_armas = 0;
-    private static int armas_artesanais;
     protected Estoque estoque;
-    protected ArrayList<ArmaArtesanal> arrayArmas;
+    protected ArrayList <ArmaArtesanal> arrayArmas;
+    protected static ArrayList <Integer> armas_com_calibre_maior_que_100;
 
     public abstract void armasProduzidas(int codigo, int serial, int acessorio);
 
@@ -107,4 +107,5 @@ public abstract class Exercito {
         return total_armas_profissionais;
     }
 
+    
 }
